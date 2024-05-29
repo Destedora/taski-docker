@@ -1,19 +1,18 @@
+import os
+
 from pathlib import Path
 
-import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = os.environ['SECRET_KEY']
 
-SECRET_KEY = 'django-insecure-j_89af+30&&4qm*8z9_(^zz8p4-ho8z_m6ylm0s$h!-p@on1_^'
+DEBUG = os.environ['DEBUG'].lower()
 
-DEBUG = True
-
-ALLOWED_HOSTS = ['158.160.83.81',
-                 '127.0.0.1',
-                 'localhost',
-                 'taskidestedora.hopto.org',
-                 'destedorakittygram.ddns.net']
+ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].split(',')
 
 
 # Application definition
